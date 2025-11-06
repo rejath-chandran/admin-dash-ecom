@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAuthStore } from "../store/authStore";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://mernspace-auth-service.onrender.com",
   withCredentials: true,
 });
 
@@ -24,7 +24,7 @@ api.interceptors.response.use(
 
       try {
         const refreshResponse = await axios.post(
-          "http://localhost:8080/auth/refresh",
+          "https://mernspace-auth-service.onrender.com/auth/refresh",
           {},
           { withCredentials: true }
         );
