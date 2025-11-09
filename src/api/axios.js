@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useAuthStore } from "../store/authStore";
 
+const apiUrl = import.meta.env.VITE_API_URL || "https://mernspace-auth-service.onrender.com";
+
+
 const api = axios.create({
-  baseURL: "https://mernspace-auth-service.onrender.com",
+  baseURL: apiUrl,
   withCredentials: true,
 });
 
@@ -24,7 +27,7 @@ api.interceptors.response.use(
 
       try {
         const refreshResponse = await axios.post(
-          "https://mernspace-auth-service.onrender.com/auth/refresh",
+          `${apiUrl}/auth/refresh`,
           {},
           { withCredentials: true }
         );

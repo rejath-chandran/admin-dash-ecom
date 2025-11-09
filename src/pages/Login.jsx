@@ -4,6 +4,7 @@ import bgImage from "../assets/bg.png";
 import { useNavigate,Link } from "react-router"; // ✅ FIXED
 import api from "../api/axios";
 import { useAuthStore } from "../store/authStore";
+import DashboardMeta from "../components/meta/Login";
 
 export default function DashboardLogin() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -28,6 +29,8 @@ export default function DashboardLogin() {
   }
 
   return (
+   <>
+   <DashboardMeta />
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100 flex items-center justify-center">
       <main className="w-full max-w-6xl mx-auto p-6">
         <div className="bg-white/95 backdrop-blur-lg shadow-2xl rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2 border border-orange-100">
@@ -121,5 +124,6 @@ export default function DashboardLogin() {
         </div>
       </main>
     </div>
+   </>
   );
 }

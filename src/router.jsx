@@ -4,6 +4,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardLayout from "./layout/DashLayout";
 
 import GuestRoute from "./components/GuestRoute";
+import Home from "./pages/Home";
+import Category from "./pages/Category";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,11 @@ const router = createBrowserRouter([
         <DashboardLayout />
       </ProtectedRoute>
     ),
+    children: [
+      { index: true, element: <Home /> },  
+      { path:'/settings', element: <div>Category Page</div> },  
+      { path:'/category', element: <Category /> },  
+    ],
   },
 ]);
 
